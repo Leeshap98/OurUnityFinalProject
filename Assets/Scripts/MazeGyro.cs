@@ -1,35 +1,61 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MazeGyro : MonoBehaviour
 {
+    private Gyroscope gyro;
+    private Quaternion rotationFix;
+    [SerializeField] Transform worldObject;
+    private float maxAngle = 30f; // this value should be adjusted based on your maze and ball
+    private float smooth = 0.5f;
 
+    public bool GyroIsEnabled = true;
 
     private void Start()
     {
-        Input.gyro.enabled = true;//חייבים להפעיל את הגירוסקופ
+        SetUpGyroscope();
+    }
+
+    private void SetUpGyroscope()
+    {
+
+        gyro = Input.gyro;
+        gyro.enabled = GyroIsEnabled;
+
+        GameObject camContainer = new GameObject("camContainer");
+        camContainer.transform.position = transform.position;
+        transform.SetParent(camContainer.transform);
+
+        camContainer.transform.rotation = Quaternion.Euler(90f, 90f, 0f);
+        rotationFix = new Quaternion(0, 0, 1, 0);
+
+
     }
 
     private void Update()
     {
-        Quaternion gyroAttitude = Input.gyro.attitude;//להשוות את הסיבוב לסיבוב של הגירוסקופ
-
-        gyroAttitude = InvertAxis(gyroAttitude);//הופך את הצירים בפועל
-        transform.localRotation = gyroAttitude;//משווה את הסיבוב הלוקאלי של האובייקט לסיבוב של הגירוסקופ
+        RotateWorldObject();
     }
 
-    private static Quaternion InvertAxis(Quaternion gyroAttitude)//הופך את הצירים כי זה במינוסים
+    private void RotateWorldObject()
     {
-        gyroAttitude.x *= -1;
-        gyroAttitude.y *= -1;
+        if (worldObject != null)
+        {
+            Quaternion newRot = gyro.attitude * rotationFix;
+            if (IsRotationAllowed(newRot))
+            {
+                worldObject.rotation = Quaternion.Slerp(worldObject.rotation, newRot, Time.deltaTime * smooth);
+            }
+        }
+    }
 
-        Vector3 rotationInEuler = gyroAttitude.eulerAngles;
-        //מגביל את הסיבוב של הגירוסקופ
-        float clampedX = Mathf.Clamp(rotationInEuler.x, -UIManager.Instance.clampX, UIManager.Instance.clampX);
-        float clampedY = Mathf.Clamp(rotationInEuler.y, -UIManager.Instance.clampY, UIManager.Instance.clampY);
-        float clampedZ = Mathf.Clamp(rotationInEuler.z, -UIManager.Instance.clampZ, UIManager.Instance.clampZ);
+    private bool IsRotationAllowed(Quaternion proposedRotation)
+    {
+        float angle = Vector3.Angle(Vector3.up, proposedRotation * Vector3.up);
+        return angle < maxAngle;
+    }
 
-        return Quaternion.Euler(clampedX, clampedY, clampedZ);
+    public void SetWorldObject(Transform obj)
+    {
+        worldObject = obj;
     }
 }
