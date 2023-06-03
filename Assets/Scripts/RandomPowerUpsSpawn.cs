@@ -4,16 +4,29 @@ using UnityEngine;
 
 public class RandomPowerUpsSpawn : MonoBehaviour
 {
+    private bool createNewPowerUp = false;
+
     public GameObject[] powerUps;
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(createNewPowerUp == false)
         {
-            int randomIndex = Random.Range(0, powerUps.Length);
-            Vector3 randomSpawnPos = new Vector3(Random.Range(-10, 11), 5, Random.Range(-10, 11));
+            createNewPowerUp = true;
 
-            Instantiate(powerUps[randomIndex], randomSpawnPos, Quaternion.identity);
+            StartCoroutine(MakeNewPowerUp());
         }
+    }
+
+    IEnumerator MakeNewPowerUp()
+    {
+        yield return new WaitForSeconds(5);
+
+        int randomIndex = Random.Range(0, powerUps.Length);
+        Vector3 randomSpawnPos = new Vector3(Random.Range(-10, 11), 5, Random.Range(-10, 11));
+
+        Instantiate(powerUps[randomIndex], randomSpawnPos, Quaternion.identity);
+
+        createNewPowerUp = false;
     }
 }
