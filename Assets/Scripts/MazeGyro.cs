@@ -2,60 +2,48 @@ using UnityEngine;
 
 public class MazeGyro : MonoBehaviour
 {
-    private Gyroscope gyro;
-    private Quaternion rotationFix;
-    [SerializeField] Transform worldObject;
-    private float maxAngle = 30f; // this value should be adjusted based on your maze and ball
-    private float smooth = 0.5f;
+    private Gyroscope _gyro;
+    [SerializeField]
+    float x = 0;
+    [SerializeField]
+    float y = 0;
+    [SerializeField]
+    float z = 0;
+    [SerializeField]
+    float w = 0;
 
     public bool GyroIsEnabled = true;
+    private Quaternion deviceRotation;
 
     private void Start()
     {
         SetUpGyroscope();
     }
 
-    private void SetUpGyroscope()
+    void SetUpGyroscope() 
     {
-
-        gyro = Input.gyro;
-        gyro.enabled = GyroIsEnabled;
-
-        GameObject camContainer = new GameObject("camContainer");
-        camContainer.transform.position = transform.position;
-        transform.SetParent(camContainer.transform);
-
-        camContainer.transform.rotation = Quaternion.Euler(90f, 90f, 0f);
-        rotationFix = new Quaternion(0, 0, 1, 0);
-
-
+        _gyro = Input.gyro;
+        _gyro.enabled = GyroIsEnabled;
     }
 
     private void Update()
     {
-        RotateWorldObject();
-    }
-
-    private void RotateWorldObject()
-    {
-        if (worldObject != null)
+        if (GameManager.Instance.GameIsPasued)
         {
-            Quaternion newRot = gyro.attitude * rotationFix;
-            if (IsRotationAllowed(newRot))
-            {
-                worldObject.rotation = Quaternion.Slerp(worldObject.rotation, newRot, Time.deltaTime * smooth);
-            }
+            return;
         }
+
+        deviceRotation = Input.gyro.attitude;
+        //הופך מנקודת ציון של הגירוסקופ ליונטי
+
+        deviceRotation = new Quaternion(deviceRotation.x, deviceRotation.y, -deviceRotation.z, -deviceRotation.w);
+        deviceRotation *= new Quaternion(x, y, z, w);
+
+        deviceRotation = Quaternion.Inverse(deviceRotation);
+
+        //print(" X:" + deviceRotation.x + " Y:" + deviceRotation.y + " Z:" + deviceRotation.z + " W:" + deviceRotation.w);
+
+        transform.rotation = deviceRotation;
     }
 
-    private bool IsRotationAllowed(Quaternion proposedRotation)
-    {
-        float angle = Vector3.Angle(Vector3.up, proposedRotation * Vector3.up);
-        return angle < maxAngle;
-    }
-
-    public void SetWorldObject(Transform obj)
-    {
-        worldObject = obj;
-    }
 }

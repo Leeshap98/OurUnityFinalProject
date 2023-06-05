@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameAnalyticsSDK;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        GameAnalytics.Initialize();
         Instance = this;
 
         Application.targetFrameRate = 60;
@@ -21,6 +23,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UIManager.Instance.ResumeGameMenu();
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "World_1_Level1");
     }
 
     private void OnApplicationFocus(bool focus)
