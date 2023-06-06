@@ -2,48 +2,49 @@ using UnityEngine;
 
 public class MazeGyro : MonoBehaviour
 {
-    private Gyroscope _gyro;
-    [SerializeField]
-    float x = 0;
-    [SerializeField]
-    float y = 0;
-    [SerializeField]
-    float z = 0;
-    [SerializeField]
-    float w = 0;
+    Gyroscope gyro;
+
+    [SerializeField] Quaternion rotationOffset;
+
+    private Quaternion inverseGyroAttitude;
 
     public bool GyroIsEnabled = true;
-    private Quaternion deviceRotation;
+
 
     private void Start()
     {
         SetUpGyroscope();
     }
 
-    void SetUpGyroscope() 
+    public void SetUpGyroscope()
     {
-        _gyro = Input.gyro;
-        _gyro.enabled = GyroIsEnabled;
+        gyro = Input.gyro;
+        gyro.enabled = GyroIsEnabled;
+
+        inverseGyroAttitude = Quaternion.Inverse(gyro.attitude);
+        rotationOffset = transform.rotation * inverseGyroAttitude;
+    }
+
+    public void ResetGyro()
+    {
+        inverseGyroAttitude = Quaternion.Inverse(gyro.attitude);
+        rotationOffset = transform.rotation * inverseGyroAttitude;
     }
 
     private void Update()
     {
-        if (GameManager.Instance.GameIsPasued)
+        if (GameManager.Instance.GameIsPasued || GameManager.Instance.RestartGame)
         {
             return;
         }
 
-        deviceRotation = Input.gyro.attitude;
-        //הופך מנקודת ציון של הגירוסקופ ליונטי
+        print("Attitude" + gyro.attitude);
+        print("Inversed Attitude" + Quaternion.Inverse(gyro.attitude));
 
-        deviceRotation = new Quaternion(deviceRotation.x, deviceRotation.y, -deviceRotation.z, -deviceRotation.w);
-        deviceRotation *= new Quaternion(x, y, z, w);
+        Quaternion gyroN = gyro.attitude;
 
-        deviceRotation = Quaternion.Inverse(deviceRotation);
+        transform.rotation = gyroN * rotationOffset;
 
-        //print(" X:" + deviceRotation.x + " Y:" + deviceRotation.y + " Z:" + deviceRotation.z + " W:" + deviceRotation.w);
-
-        transform.rotation = deviceRotation;
     }
 
 }

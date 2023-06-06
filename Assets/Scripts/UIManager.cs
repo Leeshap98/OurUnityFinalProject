@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -18,47 +19,46 @@ public class UIManager : MonoBehaviour
     Button _resumeButton;
     [SerializeField]
     GameObject _pauseMenu;
-
-    [Header("Clamp Slider")]
-
     [SerializeField]
-    Slider _clampXSlider;
+    TextMeshProUGUI _timeLeft;
     [SerializeField]
-    Slider _clampYSlider; 
-    [SerializeField]
-    Slider _clampZSlider;
+    TextMeshProUGUI _scoreText;
 
-    public float clampX { get; private set; } = 30;
-    public float clampY { get; private set; } = 30;
-    public float clampZ { get; private set; } = 30;
-
+    public float Timer { get; private set; } = 0;
+    public float Score { get; private set; } = 0;
     private void Awake()
     {
         Instance = this;
     }
 
-    private void Start()
+    private void Update()
     {
-        _pauseButton.gameObject.SetActive(false);
-
-        _clampXSlider.onValueChanged.AddListener(HandleSliderValueChangeX);
-        _clampYSlider.onValueChanged.AddListener(HandleSliderValueChangeY);
-        _clampZSlider.onValueChanged.AddListener(HandleSliderValueChangeZ);
+        if (!GameManager.Instance.GameIsPasued)
+        {
+            Timer += Time.deltaTime;
+            int timer = System.Convert.ToInt32(Timer);
+            _timeLeft.text = $"Time: {timer.ToString()}s";
+        }
     }
 
-    private void HandleSliderValueChangeX(float value)
+    public void AddScore(int addedScore)
     {
-        clampX = value;
-    }
-    private void HandleSliderValueChangeY(float value)
-    {
-        clampY = value;
-    }
-    private void HandleSliderValueChangeZ(float value)
-    {
-        clampZ = value;
+        Score += addedScore;
+        _scoreText.text = $"Score: {Score.ToString()}";
     }
 
+    public void ResetScore()
+    {
+        Score = 0;
+        _scoreText.text = $"Score: {Score.ToString()}";
+    }
+
+    public void RestTimer()
+    {
+        Timer = 0;
+        int timer = System.Convert.ToInt32(Timer);
+        _timeLeft.text = $"Time: {timer.ToString()}s";
+    }
     public void PauseGameMenu()
     {
         _background.SetActive(true);
@@ -79,9 +79,15 @@ public class UIManager : MonoBehaviour
 
     public void StartGame()
     {
+        GameManager.Instance.StartGame();
+
+      /*  GameManager.Instance.LoadLevel();
+        GameManager.Instance.GameStarted = true;
+        GameManager.Instance.GameIsPasued = false;
         _pauseButton.gameObject.SetActive(true);
         _startMenu.gameObject.SetActive(false);
-        GameManager.Instance.LoadLevel();
+        _timeLeft.gameObject.SetActive(true);
+        _scoreText.gameObject.SetActive(true);*/
     }
 
     }

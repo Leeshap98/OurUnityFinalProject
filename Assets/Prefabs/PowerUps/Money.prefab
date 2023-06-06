@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 8633768938066971585}
   - component: {fileID: 8633768938066971584}
   - component: {fileID: 8633768938066971587}
+  - component: {fileID: 3145581038204385335}
   - component: {fileID: 8633768938066971586}
+  - component: {fileID: 3539127546446285241}
   m_Layer: 0
   m_Name: Money
   m_TagString: Untagged
@@ -30,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 8633768938066971589}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.19, y: 0.19, z: 0.19}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,7 +102,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 14
   m_CollisionDetection: 0
 --- !u!114 &8633768938066971587
 MonoBehaviour:
@@ -114,7 +116,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4aa2a107ff91f44eacf3a3f6d6082d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3145581038204385335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8633768938066971589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4cf0c1d8971a749b5c43755092f34d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &8633768938066971586
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8633768938066971589}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.8588817, y: 3.8588817, z: 0.69860035}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &3539127546446285241
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,5 +152,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.8588817, y: 3.8588817, z: 0.69860035}
+  m_Size: {x: 3.8588822, y: 3.8588822, z: 0.6986004}
   m_Center: {x: 0, y: 0, z: 0}

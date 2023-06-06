@@ -11,8 +11,8 @@ public class PUA : MonoBehaviour
         transform.DORotate(new Vector3(0, 360, 0), cycleLength, RotateMode.FastBeyond360)
             .SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
 
-        StartCoroutine(WaitToScaleDown());
-        StartCoroutine(WaitFive());
+       // StartCoroutine(WaitToScaleDown());
+      //  StartCoroutine(WaitFive());
     }
 
     IEnumerator WaitFive()
