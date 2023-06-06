@@ -9,23 +9,17 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     [Header("UI")]
-    [SerializeField]
-    GameObject _startMenu;
-    [SerializeField]
-    GameObject _background;
-    [SerializeField]
-    Button _pauseButton;
-    [SerializeField]
-    Button _resumeButton;
-    [SerializeField]
-    GameObject _pauseMenu;
-    [SerializeField]
-    TextMeshProUGUI _timeLeft;
-    [SerializeField]
-    TextMeshProUGUI _scoreText;
+    [SerializeField] GameObject _startMenu;
+    [SerializeField] GameObject _background;
+    [SerializeField] Button _pauseButton;
+    [SerializeField] Button _resumeButton;
+    [SerializeField] GameObject _pauseMenu;
+    [SerializeField] TextMeshProUGUI _timeLeft;
+    [SerializeField] TextMeshProUGUI _scoreText;
 
     public float Timer { get; private set; } = 0;
-    public float Score { get; private set; } = 0;
+    public float Score { get; private set; } = 0; 
+
     private void Awake()
     {
         Instance = this;
