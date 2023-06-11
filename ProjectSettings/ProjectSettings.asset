@@ -269,7 +269,14 @@ PlayerSettings:
   AndroidMinifyDebug: 0
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: 08581f5f8c9bea74eae8c37d1dace689, type: 3}
+      m_Width: 128
+      m_Height: 128
+      m_Kind: 0
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: Android
     m_Icons:
@@ -902,11 +909,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 6711cc2c-fe99-480a-a898-fd5daf6709e1
+  cloudProjectId: 6f89cf49-4d42-4c6c-be70-a9972597e1c7
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Our Unity Final Project
-  organizationId: leeshap77
+  projectName: Our Unity Final Project (2)
+  organizationId: emibeanie
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
