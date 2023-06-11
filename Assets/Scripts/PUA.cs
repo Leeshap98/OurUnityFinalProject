@@ -10,12 +10,6 @@ public class PUA : MonoBehaviour
     {
         transform.DORotate(new Vector3(0, 360, 0), cycleLength, RotateMode.FastBeyond360)
             .SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
-
-        // StartCoroutine(WaitToScaleDown());
-        //  StartCoroutine(WaitFive());
-        //הורדתי את זה כי אז הסמלים נעלמים לפני שמספיקים לגשת אליהם
-        //צריך לראות איך עושים טעינה א סנכרונית שלהם על המה כדי שיפלו בלי קשר אחד לשני
-
     }
 
     IEnumerator WaitFive()

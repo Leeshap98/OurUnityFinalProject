@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9071011191608799314}
   - component: {fileID: 5946270156678938453}
   m_Layer: 0
-  m_Name: Surprise
+  m_Name: Clock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9071011191608799321}
-  m_Mesh: {fileID: -3262163786380381542, guid: e1aaa277c3bda4d42abd5ccd4fd6fce1, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 3da57b887e4888947839b3313e880f28, type: 3}
 --- !u!23 &9071011191608799325
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d6865c4b9812bf94baaf76ca0f9899ed, type: 2}
+  - {fileID: 2100000, guid: 099241b3f9881c54d854dcd4fcbda0d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
