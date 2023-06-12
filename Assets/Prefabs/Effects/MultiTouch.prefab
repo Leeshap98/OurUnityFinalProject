@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4638412120839719248}
   - component: {fileID: 4580570535426253076}
   m_Layer: 0
-  m_Name: DoubleTouchEffect
+  m_Name: MultiTouch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
