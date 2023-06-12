@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-public class PUA : MonoBehaviour
+public class PowerUpAnimation : MonoBehaviour
 {
     private float cycleLength = 2f;
 
@@ -13,16 +13,14 @@ public class PUA : MonoBehaviour
 
         // StartCoroutine(WaitToScaleDown());
         //  StartCoroutine(WaitFive());
-        //הורדתי את זה כי אז הסמלים נעלמים לפני שמספיקים לגשת אליהם
-        //צריך לראות איך עושים טעינה א סנכרונית שלהם על המה כדי שיפלו בלי קשר אחד לשני
-
+        
     }
 
-    IEnumerator WaitFive()
-    {
-        yield return new WaitForSeconds(5);
-        Object.Destroy(this.gameObject);
-    }
+    //IEnumerator WaitFive()
+    //{
+    //    yield return new WaitForSeconds(5);
+    //    Object.Destroy(this.gameObject);
+    //}
 
     IEnumerator WaitToScaleDown()
     {
