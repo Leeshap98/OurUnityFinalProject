@@ -164,9 +164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Cocogoose-Classic-ExtraBold-trial SDF
   m_EditorClassIdentifier: 
-  hashCode: -744435500
+  hashCode: 0
   material: {fileID: -4962687539355645648}
-  materialHashCode: -1240577164
+  materialHashCode: 0
   m_Version: 1.1.0
   m_SourceFontFileGUID: 4251969db3402f34ab73ef55f3b458e1
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 4251969db3402f34ab73ef55f3b458e1, type: 3}
