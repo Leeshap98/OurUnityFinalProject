@@ -9,11 +9,12 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [SerializeField] MazeGyro _mazeGyro;
-    [SerializeField] Ball _ball;
+    [SerializeField] StartPoint _startPoint;
 
     public bool RestartGame = false;
     public bool GameIsPasued = false;
     public bool GameStarted = false;
+    public bool BallHasSpawnd;
 
     private void Awake()
     {
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour
     public void LoadLevel()
     {
         _mazeGyro.gameObject.SetActive(true);
-        _ball.gameObject.SetActive(true);
+        Ball.Instance.gameObject.SetActive(true);
     }
 
     public void RestartLevel()
@@ -76,12 +77,18 @@ public class GameManager : MonoBehaviour
         if (GameIsPasued)
         {
             _mazeGyro.GyroIsEnabled = false;
-            _ball.SetKinematic(true);
+            Ball.Instance.SetKinematic(true);
+        }
+        else if (!_startPoint._ballIsSpawnd)
+        {
+            BallHasSpawnd = false;
+            _mazeGyro.GyroIsEnabled = false;
         }
         else
         {
+            BallHasSpawnd = true;
             _mazeGyro.GyroIsEnabled = true;
-            _ball.SetKinematic(false);
+            Ball.Instance.SetKinematic(false);
         }
     }
 }

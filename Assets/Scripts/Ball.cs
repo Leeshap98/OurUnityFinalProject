@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    public static Ball Instance;
+
     [SerializeField]
     Rigidbody _rigidbody;
-    private Vector3 initialPosition;
-    private void Start()
+    public Vector3 initialPosition;
+
+    private void Awake()
     {
-        initialPosition = transform.position;
+        Instance = this;
     }
 
     public void ResetBall()
     {
-        transform.position = initialPosition;
+        transform.position = StartPoint.Instance.transform.position;
     }
 
     public void SetKinematic(bool state)

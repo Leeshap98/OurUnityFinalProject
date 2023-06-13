@@ -3,23 +3,18 @@ using UnityEngine;
 public class MazeGyro : MonoBehaviour
 {
     Gyroscope gyro;
-
+    [SerializeField]
+    float _speed = 3;
     [SerializeField] Quaternion rotationOffset;
 
     private Quaternion inverseGyroAttitude;
 
     public bool GyroIsEnabled = true;
 
-
-    private void Start()
-    {
-        SetUpGyroscope();
-    }
-
     public void SetUpGyroscope()
     {
         gyro = Input.gyro;
-        gyro.enabled = GyroIsEnabled;
+        gyro.enabled = true;
 
         inverseGyroAttitude = Quaternion.Inverse(gyro.attitude);
         rotationOffset = transform.rotation * inverseGyroAttitude;
@@ -38,12 +33,15 @@ public class MazeGyro : MonoBehaviour
             return;
         }
 
-        print("Attitude" + gyro.attitude);
-        print("Inversed Attitude" + Quaternion.Inverse(gyro.attitude));
+        if (!GameManager.Instance.BallHasSpawnd)
+        {
+            SetUpGyroscope();
+            return;
+        }
 
         Quaternion gyroN = gyro.attitude;
 
-        transform.rotation = gyroN * rotationOffset;
+        transform.rotation = Quaternion.Lerp(transform.rotation, gyroN * rotationOffset, Time.deltaTime * _speed);
 
     }
 
