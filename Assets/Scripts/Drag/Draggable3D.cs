@@ -17,7 +17,7 @@ public class Draggable3D : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            Touch touch = Input.GetTouch(0);
+            UnityEngine.Touch touch = Input.GetTouch(0);
 
             Ray ray = cam.ScreenPointToRay(touch.position);
             RaycastHit hit;
