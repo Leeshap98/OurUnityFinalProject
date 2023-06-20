@@ -9,7 +9,14 @@ public class Trap : MonoBehaviour
         if (other.CompareTag("Ball"))
         {
             Handheld.Vibrate();
-            other.GetComponent<Ball>().ResetBall();
+            StartCoroutine(Timer());
         }
+    }
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Ball.Instance.ResetBall();
+        yield return null;
     }
 }

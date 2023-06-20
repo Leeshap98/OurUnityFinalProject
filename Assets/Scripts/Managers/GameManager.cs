@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         }
 
         UIManager.Instance.ResumeGameMenu();
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "World_1_Level1");
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, $"Level_{SceneManager.GetActiveScene().buildIndex.ToString()}");
     }
 
     private void OnApplicationFocus(bool focus)
@@ -55,6 +55,11 @@ public class GameManager : MonoBehaviour
         Ball.Instance.gameObject.SetActive(true);
     }
 
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -62,9 +67,11 @@ public class GameManager : MonoBehaviour
 
     public void EndLevel()
     {
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "World_1");
-        GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "Coins", UIManager.Instance.Score, "Coins", "Coins");
-        GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "Time", UIManager.Instance.Timer, "Time", "Time");
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, $"Level_{SceneManager.GetActiveScene().buildIndex.ToString()}");
+        GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "Coins", UIManager.Instance.Score, "Coins", "EndLevel");
+        GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "Time", UIManager.Instance.Timer, "Time", "EndLevel");
+
+        LoadNextLevel();
     }
 
     private void Update()

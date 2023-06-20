@@ -39,10 +39,12 @@ public class MazeGyro : MonoBehaviour
             return;
         }
 
-        Quaternion gyroN = gyro.attitude;
+        if (gyro != null)
+        {
+            Quaternion gyroN = gyro.attitude;
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, gyroN * rotationOffset, Time.deltaTime * _speed);
-
+            transform.rotation = Quaternion.Lerp(transform.rotation, gyroN * rotationOffset, Time.deltaTime * _speed);
+        }
     }
 
 }
