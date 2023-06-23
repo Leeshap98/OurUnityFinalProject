@@ -44,7 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4065182409c9c4d46b1f2f741a433ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUps:
-  - {fileID: 9071011191608799321, guid: be053fcd5d26bf249a03ca6c49dfce92, type: 3}
-  - {fileID: 8633768938066971589, guid: d68b897ed4fbcd34cad5bf67e01263ad, type: 3}
-  - {fileID: 4123890034564695879, guid: ebd0a4100194d624eb3a86511606d918, type: 3}
+  clock: {fileID: 9071011191608799321, guid: be053fcd5d26bf249a03ca6c49dfce92, type: 3}

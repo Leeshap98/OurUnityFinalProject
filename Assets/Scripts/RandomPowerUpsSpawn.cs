@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class RandomPowerUpsSpawn : MonoBehaviour
 {
+    [SerializeField] private GameObject clock;
+
     private bool doneWaiting = false;
-    
-    public GameObject[] powerUps;
+    private Camera mainCamera;
 
-
+    void Start()
+    {
+        mainCamera = Camera.main;
+    }
     void Update()
     {
         if(doneWaiting == false)
@@ -19,12 +23,11 @@ public class RandomPowerUpsSpawn : MonoBehaviour
 
         IEnumerator WaitFifteen()
         {
-            int randomIndex = Random.Range(0, powerUps.Length);
-            Vector3 randomSpawnPos = new Vector3(Random.Range(-5, 5), 5, Random.Range(-5, 5));
+            Vector3 randomSpawnPos = new Vector3(Random.Range(-3, 3), 5,(Random.Range(-3, 3)));
 
-            Instantiate(powerUps[randomIndex], randomSpawnPos, Quaternion.identity);
+            Instantiate(clock, randomSpawnPos, Quaternion.identity);
             
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(15);
             doneWaiting = false;
         }
     }
