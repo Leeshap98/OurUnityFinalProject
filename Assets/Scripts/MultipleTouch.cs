@@ -57,10 +57,15 @@ public class MultipleTouch : MonoBehaviour
 
     GameObject CreateBall(Touch t)
     {
-        GameObject ball = Instantiate(BallPrefab);
-        ball.name = "Touch" + t.fingerId;
-        ball.transform.position = GetTouchPosition(t.position);
-      
-        return ball;
+        if (BallPrefab)
+        {
+            GameObject ball = Instantiate(BallPrefab);
+            ball.name = "Touch" + t.fingerId;
+            ball.transform.position = GetTouchPosition(t.position);
+
+            return ball;
+        }
+
+        return null;
     }
 }

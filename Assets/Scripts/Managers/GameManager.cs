@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] MazeGyro _mazeGyro;
     [SerializeField] StartPoint _startPoint;
+    [SerializeField] LayerMask clockLayer;
 
     public bool RestartGame = false;
     public bool GameIsPasued = false;
@@ -96,6 +97,16 @@ public class GameManager : MonoBehaviour
             BallHasSpawnd = true;
             _mazeGyro.GyroIsEnabled = true;
             Ball.Instance.SetKinematic(false);
+        }
+    }
+
+    private void SearchClock(Vector3 touchPosition)
+    {
+        Ray _ray = Camera.main.ScreenPointToRay(touchPosition);
+        RaycastHit hit;
+        if (Physics.Raycast(_ray,out hit,10f,clockLayer))
+        {
+            //HitClock
         }
     }
 }

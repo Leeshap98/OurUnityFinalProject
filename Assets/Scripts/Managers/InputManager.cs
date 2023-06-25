@@ -11,11 +11,11 @@ public class InputManager : MonoBehaviour
     public delegate void EndTouchEvent(Vector2 position, float time);
     public event EndTouchEvent OnEndTouch;
 
-    private TouchControls touchControls;
+    private ControlsNIS touchControls;
 
     private void Awake()
     {
-        touchControls = new TouchControls();
+        touchControls = new ControlsNIS();
     }
     private void OnEnable()
     {
