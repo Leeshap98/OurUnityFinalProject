@@ -5,20 +5,22 @@ using UnityEngine;
 public class StartPoint : MonoBehaviour
 {
     public static StartPoint Instance;
-    [SerializeField]
-    GameObject ballPrefab;
-    public bool _ballIsSpawnd { get; private set; }
+    public bool ballIsSpawned { get; private set; }
+
+    [SerializeField] GameObject ballPrefab;
+
+
     private void Awake()
     {
         Instance = this;
     }
     IEnumerator Start()
     {
-        _ballIsSpawnd = false;
+        ballIsSpawned = false;
         yield return new WaitForSeconds(1f);
 
         Instantiate(ballPrefab, transform.position, Quaternion.identity);
-        _ballIsSpawnd = true;
+        ballIsSpawned = true;
         yield return null;
     }
 }

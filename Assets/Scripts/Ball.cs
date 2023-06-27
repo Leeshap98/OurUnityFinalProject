@@ -5,14 +5,14 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public static Ball Instance;
-    [SerializeField]
-    ParticleSystem _bubbleTrail;
-    [SerializeField]
-    float velocityThreshold = 0.1f;
 
-    [SerializeField]
-    Rigidbody _rigidbody;
     public Vector3 initialPosition;
+
+    [SerializeField] ParticleSystem bubbleTrail;
+    [SerializeField] Rigidbody rgb;
+    [SerializeField] float velocityThreshold = 0.1f;
+    
+    
 
     private void Awake()
     {
@@ -26,18 +26,18 @@ public class Ball : MonoBehaviour
 
 	void BubbleLogic()
     {
-        if (_rigidbody.velocity.magnitude <= velocityThreshold)
+        if (rgb.velocity.magnitude <= velocityThreshold)
         {
-            if (_bubbleTrail.isPlaying)
+            if (bubbleTrail.isPlaying)
             {
-                _bubbleTrail.Stop();
+                bubbleTrail.Stop();
             }
         }
         else 
         {
-            if (!_bubbleTrail.isPlaying) 
+            if (!bubbleTrail.isPlaying) 
             {
-                _bubbleTrail.Play();
+                bubbleTrail.Play();
             }
         }
     }
@@ -49,6 +49,6 @@ public class Ball : MonoBehaviour
 
     public void SetKinematic(bool state)
     {
-        _rigidbody.isKinematic = state;
+        rgb.isKinematic = state;
     }
 }

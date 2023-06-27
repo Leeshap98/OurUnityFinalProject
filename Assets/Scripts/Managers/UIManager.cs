@@ -9,19 +9,19 @@ using UnityEngine.Audio;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+    public float Timer { get; private set; } = 0;
+    public float Score { get; private set; } = 0;
 
     [Header("UI")]
-    [SerializeField] Button _pauseButton;
-    [SerializeField] Button _resumeButton;
-    [SerializeField] GameObject _pausePanel;
-    [SerializeField] TextMeshProUGUI _timeLeft;
-    [SerializeField] TextMeshProUGUI _scoreText;
-    [SerializeField] GameObject _optionsPanel;
+    [SerializeField] Button pauseButton;
+    [SerializeField] Button resumeButton;
+    [SerializeField] GameObject pausePanel;
+    [SerializeField] TextMeshProUGUI timeLeft;
+    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] GameObject optionsPanel;
     //[SerializeField] AudioMixer MusicMixer;
     //[SerializeField] AudioMixer SFXMixer;
 
-    public float Timer { get; private set; } = 0;
-    public float Score { get; private set; } = 0; 
 
     private void Awake()
     {
@@ -34,44 +34,44 @@ public class UIManager : MonoBehaviour
         {
             Timer += Time.deltaTime;
             int timer = System.Convert.ToInt32(Timer);
-            _timeLeft.text = $"Time: {timer.ToString()}s";
+            timeLeft.text = $"Time: {timer.ToString()}s";
         }
     }
 
     public void AddScore(int addedScore)
     {
         Score += addedScore;
-        _scoreText.text = $"Score: {Score.ToString()}";
+        scoreText.text = $"Score: {Score.ToString()}";
     }
 
     public void ResetScore()
     {
         Score = 0;
-        _scoreText.text = $"Score: {Score.ToString()}";
+        scoreText.text = $"Score: {Score.ToString()}";
     }
 
     public void RestTimer()
     {
         Timer = 0;
         int timer = System.Convert.ToInt32(Timer);
-        _timeLeft.text = $"Time: {timer.ToString()}s";
+        timeLeft.text = $"Time: {timer.ToString()}s";
     }
     public void PauseGameMenu()
     {
-        _pausePanel.SetActive(true);
-        _optionsPanel.SetActive(false);
+        pausePanel.SetActive(true);
+        optionsPanel.SetActive(false);
         GameManager.Instance.GameIsPasued = true;
-        _pauseButton.gameObject.SetActive(false);
-        _resumeButton.gameObject.SetActive(true);
+        pauseButton.gameObject.SetActive(false);
+        resumeButton.gameObject.SetActive(true);
     }
 
     public void ResumeGameMenu()
     {
-        _pausePanel.SetActive(false);
-        _optionsPanel.SetActive(false);
+        pausePanel.SetActive(false);
+        optionsPanel.SetActive(false);
         GameManager.Instance.GameIsPasued = false;
-        _pauseButton.gameObject.SetActive(true);
-        _resumeButton.gameObject.SetActive(false);
+        pauseButton.gameObject.SetActive(true);
+        resumeButton.gameObject.SetActive(false);
     }
 
     //public void StartGame()
@@ -92,8 +92,8 @@ public class UIManager : MonoBehaviour
     }
     public void optionsOn()
     {
-       _optionsPanel.SetActive(true);
-        _pausePanel.SetActive(false);
+       optionsPanel.SetActive(true);
+        pausePanel.SetActive(false);
     }
     //public void SetMusicVolume(float volume)
     //{

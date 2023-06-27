@@ -760,9 +760,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ada54f5b9d369304397f15e1b2117433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _androidGameId: 5308669
-  _iOSGameId: 5308668
-  _testMode: 1
+  androidGameId: 
+  iOSGameId: 
+  testMode: 1
   rewardedAdsButton: {fileID: 50132952}
 --- !u!4 &916748964
 Transform:
@@ -883,7 +883,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh132358
+  m_Name: pb_Mesh173858
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1212,7 +1212,7 @@ PrefabInstance:
       objectReference: {fileID: 1539459598}
     - target: {fileID: 5725845663677885956, guid: 07d1b038658276b40bc64999a265ccb1, type: 3}
       propertyPath: m_VersionIndex
-      value: 125
+      value: 131
       objectReference: {fileID: 0}
     - target: {fileID: 6809851792735997046, guid: 07d1b038658276b40bc64999a265ccb1, type: 3}
       propertyPath: m_Mesh

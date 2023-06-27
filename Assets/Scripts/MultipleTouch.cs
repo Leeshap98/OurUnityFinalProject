@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class MultipleTouch : MonoBehaviour
 {
-    [SerializeField] GameObject BallPrefab;
     public List<TouchLocation> touches = new List<TouchLocation>();
 
+    [SerializeField] GameObject BallPrefab;
+
+    
     private void Update()
     {
         int i = 0;

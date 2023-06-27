@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class Draggable3D : MonoBehaviour
 {
-    private Vector3 offset;
-    private bool dragging;
-    private Camera cam;
     [SerializeField] Rigidbody rb;
+
+    private Vector3 offset;
+    private Camera cam;
+
+    private bool dragging; 
     private float zCoordinate;
 
     private void Start()

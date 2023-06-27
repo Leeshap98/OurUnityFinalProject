@@ -12,7 +12,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] AudioMixer MusicMixer;
     [SerializeField] AudioMixer SFXMixer;
 
-  
 
     public void startOn()
     {
