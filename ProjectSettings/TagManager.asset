@@ -5,19 +5,20 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ball
+  - Floor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ball
   - Water
   - UI
   - Clock
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PowerUp
+  - BallJail
+  - Walls
+  - Floor
+  - BodyPowerUP
   - 
   - 
   - 

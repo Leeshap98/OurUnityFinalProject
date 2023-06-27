@@ -69,9 +69,8 @@ public class GameManager : MonoBehaviour
     public void EndLevel()
     {
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, $"Level_{SceneManager.GetActiveScene().buildIndex.ToString()}");
-        GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "Coins", UIManager.Instance.Score, "Coins", "EndLevel");
-        GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "Time", UIManager.Instance.Timer, "Time", "EndLevel");
-
+        GameAnalytics.NewDesignEvent($"Coin:Collected {UIManager.Instance.Score}:EndLevel", UIManager.Instance.Score);
+      
         LoadNextLevel();
     }
 

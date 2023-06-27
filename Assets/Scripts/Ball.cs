@@ -5,6 +5,10 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public static Ball Instance;
+    [SerializeField]
+    ParticleSystem _bubbleTrail;
+    [SerializeField]
+    float velocityThreshold = 0.1f;
 
     [SerializeField]
     Rigidbody _rigidbody;
@@ -13,6 +17,29 @@ public class Ball : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
+
+	private void Update()
+	{
+        BubbleLogic();
+	}
+
+	void BubbleLogic()
+    {
+        if (_rigidbody.velocity.magnitude <= velocityThreshold)
+        {
+            if (_bubbleTrail.isPlaying)
+            {
+                _bubbleTrail.Stop();
+            }
+        }
+        else 
+        {
+            if (!_bubbleTrail.isPlaying) 
+            {
+                _bubbleTrail.Play();
+            }
+        }
     }
 
     public void ResetBall()

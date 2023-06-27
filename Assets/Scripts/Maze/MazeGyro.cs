@@ -13,16 +13,16 @@ public class MazeGyro : MonoBehaviour
 
     public void SetUpGyroscope()
     {
+        
         gyro = Input.gyro;
         gyro.enabled = true;
 
-        inverseGyroAttitude = Quaternion.Inverse(gyro.attitude);
-        rotationOffset = transform.rotation * inverseGyroAttitude;
+        ResetGyro();
     }
 
     public void ResetGyro()
     {
-        inverseGyroAttitude = Quaternion.Inverse(gyro.attitude);
+        inverseGyroAttitude = gyro.attitude;
         rotationOffset = transform.rotation * inverseGyroAttitude;
     }
 
@@ -41,7 +41,8 @@ public class MazeGyro : MonoBehaviour
 
         if (gyro != null)
         {
-            Quaternion gyroN = gyro.attitude;
+            Quaternion gyroN = Quaternion.Inverse(gyro.attitude);
+            
 
             transform.rotation = Quaternion.Lerp(transform.rotation, gyroN * rotationOffset, Time.deltaTime * _speed);
         }
