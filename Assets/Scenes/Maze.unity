@@ -1439,6 +1439,10 @@ PrefabInstance:
       propertyPath: _startPoint
       value: 
       objectReference: {fileID: 2116391949}
+    - target: {fileID: 998974060905936727, guid: 1ca2aef521d369c4d9d62d2570789b35, type: 3}
+      propertyPath: clockLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ca2aef521d369c4d9d62d2570789b35, type: 3}
 --- !u!1001 &4232367538454080323
