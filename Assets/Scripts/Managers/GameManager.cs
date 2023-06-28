@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour
             //HitClock
             UIManager.Instance.Timer -= 5;
             hit.collider.gameObject.GetComponent<PUA>().WaitToScaleDown();
+            Debug.Log("We touched clock!!!!!!!!!!!!!!!!");
         }
     }
 }

@@ -31,6 +31,4 @@ public class RandomPowerUpsSpawn : MonoBehaviour
             doneWaiting = false;
         }
     }
-
-
 }

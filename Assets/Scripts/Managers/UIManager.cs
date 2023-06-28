@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
     //[SerializeField] AudioMixer MusicMixer;
     //[SerializeField] AudioMixer SFXMixer;
 
-    public float Timer { get; private set; } = 0;
+    public float Timer { get; set; } = 0;
     public float Score { get; private set; } = 0; 
 
     private void Awake()
