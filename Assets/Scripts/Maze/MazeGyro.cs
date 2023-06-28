@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class MazeGyro : MonoBehaviour
 {
-    public bool GyroIsEnabled = true;
-
-    [SerializeField] float speed = 3;
+    Gyroscope gyro;
+    [SerializeField]
+    float _speed = 3;
     [SerializeField] Quaternion rotationOffset;
 
     private Quaternion inverseGyroAttitude;
 
-    Gyroscope gyro;
-
+    public bool GyroIsEnabled = true;
 
     public void SetUpGyroscope()
     {
@@ -45,7 +44,7 @@ public class MazeGyro : MonoBehaviour
             Quaternion gyroN = Quaternion.Inverse(gyro.attitude);
             
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, gyroN * rotationOffset, Time.deltaTime * speed);
+            transform.rotation = Quaternion.Lerp(transform.rotation, gyroN * rotationOffset, Time.deltaTime * _speed);
         }
     }
 
