@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [SerializeField] MazeGyro mazeGyro;
-    [SerializeField] StartPoint startPoint;
+    [SerializeField] MazeGyro _mazeGyro;
+    [SerializeField] StartPoint _startPoint;
     [SerializeField] LayerMask clockLayer;
 
     public bool RestartGame = false;
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel()
     {
-        mazeGyro.gameObject.SetActive(true);
+        _mazeGyro.gameObject.SetActive(true);
         Ball.Instance.gameObject.SetActive(true);
     }
 
@@ -83,18 +83,18 @@ public class GameManager : MonoBehaviour
 
         if (GameIsPasued)
         {
-            mazeGyro.GyroIsEnabled = false;
+            _mazeGyro.GyroIsEnabled = false;
             Ball.Instance.SetKinematic(true);
         }
-        else if (!startPoint.ballIsSpawned)
+        else if (!_startPoint._ballIsSpawnd)
         {
             BallHasSpawnd = false;
-            mazeGyro.GyroIsEnabled = false;
+            _mazeGyro.GyroIsEnabled = false;
         }
         else
         {
             BallHasSpawnd = true;
-            mazeGyro.GyroIsEnabled = true;
+            _mazeGyro.GyroIsEnabled = true;
             Ball.Instance.SetKinematic(false);
         }
     }

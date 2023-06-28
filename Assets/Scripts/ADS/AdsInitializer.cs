@@ -3,10 +3,10 @@ using UnityEngine.Advertisements;
 
 public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
 {
-    [SerializeField] string androidGameId;
-    [SerializeField] string iOSGameId;
-    [SerializeField] bool testMode = true;
-    private string gameId;
+    [SerializeField] string _androidGameId;
+    [SerializeField] string _iOSGameId;
+    [SerializeField] bool _testMode = true;
+    private string _gameId;
 
     [SerializeField] RewardedAdsButton rewardedAdsButton;
 
@@ -20,13 +20,13 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
 #if UNITY_IOS
             _gameId = _iOSGameId;
 #elif UNITY_ANDROID
-        gameId = androidGameId;
+        _gameId = _androidGameId;
 #elif UNITY_EDITOR
             _gameId = _androidGameId; //Only for testing the functionality in the Editor
 #endif
         if (!Advertisement.isInitialized && Advertisement.isSupported)
         {
-            Advertisement.Initialize(gameId, testMode, this);
+            Advertisement.Initialize(_gameId, _testMode, this);
         }
     }
 
