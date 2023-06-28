@@ -9,7 +9,11 @@ using UnityEngine.Audio;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
-    public float Timer { get; private set; } = 0;
+    public float Timer 
+    { 
+        get; 
+        set; 
+    } = 0;
     public float Score { get; private set; } = 0;
 
     [Header("UI")]

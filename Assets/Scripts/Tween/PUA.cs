@@ -27,6 +27,7 @@ public class PUA : MonoBehaviour
     public IEnumerator WaitToScaleDown()
     {
         transform.DOScale(new Vector3(0, 0, 0), 0.05f).SetEase(Ease.InBounce);
-        yield return null;
+        yield return new WaitForSeconds(1);
+        Object.Destroy(this.gameObject);
     }
 }

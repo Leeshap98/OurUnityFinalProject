@@ -106,6 +106,8 @@ public class GameManager : MonoBehaviour
         if (Physics.Raycast(_ray,out hit,10f,clockLayer))
         {
             //HitClock
+            UIManager.Instance.Timer -= 5;
+            hit.collider.gameObject.GetComponent<PUA>().WaitToScaleDown();
         }
     }
 }
