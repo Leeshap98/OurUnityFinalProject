@@ -8,11 +8,12 @@ public class Trap : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
+            if(SoundManager.Instance.VibrationEnabled)
             Handheld.Vibrate();
+            
             StartCoroutine(Timer());
         }
     }
-
     IEnumerator Timer()
     {
         yield return new WaitForSeconds(0.2f);

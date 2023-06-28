@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
-using UnityEngine.Audio;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,8 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI _timeLeft;
     [SerializeField] TextMeshProUGUI _scoreText;
     [SerializeField] GameObject _optionsPanel;
-    //[SerializeField] AudioMixer MusicMixer;
-    //[SerializeField] AudioMixer SFXMixer;
+    
 
     public float Timer { get; set; } = 0;
     public float Score { get; private set; } = 0; 
@@ -73,19 +71,6 @@ public class UIManager : MonoBehaviour
         _pauseButton.gameObject.SetActive(true);
         _resumeButton.gameObject.SetActive(false);
     }
-
-    //public void StartGame()
-    //{
-    //    GameManager.Instance.StartGame();
-
-    //  /*  GameManager.Instance.LoadLevel();
-    //    GameManager.Instance.GameStarted = true;
-    //    GameManager.Instance.GameIsPasued = false;
-    //    _pauseButton.gameObject.SetActive(true);
-    //    _startMenu.gameObject.SetActive(false);
-    //    _timeLeft.gameObject.SetActive(true);
-    //    _scoreText.gameObject.SetActive(true);*/
-    //}
     public void QuitGame()
     {
         SceneManager.LoadScene("OpenScene");
@@ -95,21 +80,4 @@ public class UIManager : MonoBehaviour
        _optionsPanel.SetActive(true);
         _pausePanel.SetActive(false);
     }
-    //public void SetMusicVolume(float volume)
-    //{
-    //    MusicMixer.SetFloat("volume", volume);
-    //}
-    //public void SetSFXVolume(float volume)
-    //{
-    //    SFXMixer.SetFloat("volume", volume);
-    //}
-    //public void SetSound(bool isFullScreen)
-    //{
-    //    MusicMixer.SetFloat("volume", 0);
-    //    SFXMixer.SetFloat("volume", 0);
-    //}
-    ////public void SetVib(bool IsVib)
-    ////{
-
-    ////}
 }

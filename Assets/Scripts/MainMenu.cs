@@ -2,51 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
+
 
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] GameObject startPanel;
-    [SerializeField] GameObject optionsPanel;
-    [SerializeField] GameObject creditsPanel;
-    [SerializeField] AudioMixer MusicMixer;
-    [SerializeField] AudioMixer SFXMixer;
-
-  
+    [SerializeField] GameObject _StartPanel;
+    [SerializeField] GameObject _OptionsPanel;
+    [SerializeField] GameObject _CreditsPanel;
 
     public void startOn()
     {
-        startPanel.SetActive(true);
-        optionsPanel.SetActive(false);
-        creditsPanel.SetActive(false);
+        _StartPanel.SetActive(true);
+        _OptionsPanel.SetActive(false);
+        _CreditsPanel.SetActive(false);
     }
     public void optionsOn()
     {
-        startPanel.SetActive(false);
-        optionsPanel.SetActive(true);
-        creditsPanel.SetActive(false);
+        _StartPanel.SetActive(false);
+        _OptionsPanel.SetActive(true);
+        _CreditsPanel.SetActive(false);
     }
     public void creditsOn()
     {
-        startPanel.SetActive(false);
-        optionsPanel.SetActive(false);
-        creditsPanel.SetActive(true);
+        _StartPanel.SetActive(false);
+        _OptionsPanel.SetActive(false);
+        _CreditsPanel.SetActive(true);
     }
-    public void SetMusicVolume(float volume)
+    public void TouchScene()
     {
-        MusicMixer.SetFloat("volume", volume);
+        SceneManager.LoadScene("TouchScene");
     }
-    public void SetSFXVolume(float volume)
-    {
-        SFXMixer.SetFloat("volume", volume);
-    }
-    public void SetSound(bool isFullScreen)
-    {
-        MusicMixer.SetFloat("volume", 0);
-        SFXMixer.SetFloat("volume", 0);
-    }
-    //public void SetVib(bool IsVib)
-    //{
-
-    //}
 }
