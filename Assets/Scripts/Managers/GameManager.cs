@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
         _mazeGyro.gameObject.SetActive(true);
         Ball.Instance.gameObject.SetActive(true);
     }
+
     public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

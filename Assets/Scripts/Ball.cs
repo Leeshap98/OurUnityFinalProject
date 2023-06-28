@@ -5,13 +5,14 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public static Ball Instance;
+    [SerializeField]
+    ParticleSystem _bubbleTrail;
+    [SerializeField]
+    float velocityThreshold = 0.1f;
 
+    [SerializeField]
+    Rigidbody _rigidbody;
     public Vector3 initialPosition;
-
-    [SerializeField] ParticleSystem _bubbleTrail;
-    [SerializeField] Rigidbody _rigidbody;
-    [SerializeField] float velocityThreshold = 0.1f;
-    
 
     private void Awake()
     {
