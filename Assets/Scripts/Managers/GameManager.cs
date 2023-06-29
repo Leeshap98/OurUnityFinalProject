@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //beautiful function with no use
     private void SearchClock(Vector3 touchPosition)
     {
         Ray _ray = Camera.main.ScreenPointToRay(touchPosition);

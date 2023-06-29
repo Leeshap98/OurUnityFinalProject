@@ -7,7 +7,8 @@ using TMPro;
 public class ClockAnimation : MonoBehaviour
 {
     [SerializeField] PUA _pua;
-    [SerializeField] MinusTen minus10;
+    [SerializeField] TextMeshProUGUI minus10;
+    //[SerializeField] MinusTen minus10;
     //[SerializeField] GameObject clockPrefab;
     private void OnTriggerEnter(Collider other)
     {
@@ -16,6 +17,8 @@ public class ClockAnimation : MonoBehaviour
             UIManager.Instance.Timer -= 5;
             StartCoroutine(_pua.WaitFive());
             StartCoroutine(_pua.WaitToScaleDown());
+            minus10.enabled = true;
+            Debug.Log("TimeIsShowing");
         }
 
     }
