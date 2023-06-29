@@ -73,7 +73,10 @@ public class GameManager : MonoBehaviour
       
         LoadNextLevel();
     }
-
+    public void StartMenu()
+    {
+        SceneManager.LoadScene("OpenScene");
+    }
     private void Update()
     {
         if(SceneManager.GetActiveScene().buildIndex == 0)
