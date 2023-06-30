@@ -1061,6 +1061,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 998974060905936727, guid: 1ca2aef521d369c4d9d62d2570789b35, type: 3}
+      propertyPath: _mazeGyro
+      value: 
+      objectReference: {fileID: 2116391951, guid: 07d1b038658276b40bc64999a265ccb1, type: 3}
+    - target: {fileID: 998974060905936727, guid: 1ca2aef521d369c4d9d62d2570789b35, type: 3}
       propertyPath: _AudioClip
       value: 
       objectReference: {fileID: 8300000, guid: af1e8e564081c41b9b0abd8d9f2e69b7, type: 3}
