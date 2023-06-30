@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameAnalyticsSDK;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    [SerializeField] AudioSource _AudioSource;
+    [SerializeField] AudioClip _AudioClip;
 
     [SerializeField] MazeGyro _mazeGyro;
     [SerializeField] StartPoint _startPoint;
@@ -76,6 +80,20 @@ public class GameManager : MonoBehaviour
     public void StartMenu()
     {
         SceneManager.LoadScene("OpenScene");
+    }
+    public void TouchScene()
+    {
+        SceneManager.LoadScene("TouchScene");
+    }
+    public void FirstMaze()
+    {
+        SceneManager.LoadScene("Maze");
+    }
+
+    public void ClickSound()
+    {
+        _AudioSource.clip = _AudioClip;
+        _AudioSource.Play();
     }
     private void Update()
     {

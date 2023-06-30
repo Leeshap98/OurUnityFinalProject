@@ -110,6 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4cf0c1d8971a749b5c43755092f34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _AudioSource: {fileID: 0}
+  _AudioClip: {fileID: 8300000, guid: 0b5de865586844050b285d4a3fd6b033, type: 3}
   _pua: {fileID: 4845963283189226654}
 --- !u!65 &4845963283189226655
 BoxCollider:

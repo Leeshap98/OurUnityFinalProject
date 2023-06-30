@@ -48,7 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2fed98c2728ad438efcda73491f43f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _AudioSource: {fileID: 0}
+  _AudioClip: {fileID: 8300000, guid: 2796991c2d63adf4c9c3d417a318aeaf, type: 3}
   _pua: {fileID: 4215528374449524025}
+  minus10: {fileID: 0}
 --- !u!114 &4215528374449524025
 MonoBehaviour:
   m_ObjectHideFlags: 0
