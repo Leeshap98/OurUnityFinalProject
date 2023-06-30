@@ -11,15 +11,13 @@ public class ClockAnimation : MonoBehaviour
     [SerializeField] AudioClip _AudioClip;
     [SerializeField] PUA _pua;
     [SerializeField] TextMeshProUGUI minus10;
-    //[SerializeField] MinusTen minus10;
-    //[SerializeField] GameObject clockPrefab;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
         {
             _AudioSource.clip = _AudioClip;
             _AudioSource.Play();
-            UIManager.Instance.Timer -= 5;
+            UIManager.Instance.Timer -= 10;
             StartCoroutine(_pua.WaitFive());
             StartCoroutine(_pua.WaitToScaleDown());
             minus10.enabled = true;

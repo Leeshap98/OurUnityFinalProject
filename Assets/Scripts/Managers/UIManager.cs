@@ -33,6 +33,8 @@ public class UIManager : MonoBehaviour
             Timer += Time.deltaTime;
             int timer = System.Convert.ToInt32(Timer);
             _timeLeft.text = $"Time: {timer.ToString()}s";
+            if (Timer <= 0)
+                Timer = 0;
         }
     }
 
