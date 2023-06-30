@@ -12,7 +12,8 @@ public class Trap : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            if(SoundManager.Instance.VibrationEnabled)
+            //if(SoundManager.Instance.VibrationEnabled)
+            
             Handheld.Vibrate();
 
             _AudioSource.clip = _AudioClip;
