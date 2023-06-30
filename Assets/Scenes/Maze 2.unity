@@ -1872,6 +1872,10 @@ PrefabInstance:
       propertyPath: minus10
       value: 
       objectReference: {fileID: 1218836171}
+    - target: {fileID: 5209384263677470647, guid: be053fcd5d26bf249a03ca6c49dfce92, type: 3}
+      propertyPath: _AudioSource
+      value: 
+      objectReference: {fileID: 401235478}
     - target: {fileID: 9071011191608799321, guid: be053fcd5d26bf249a03ca6c49dfce92, type: 3}
       propertyPath: m_Name
       value: Clock
@@ -2975,6 +2979,10 @@ PrefabInstance:
       propertyPath: minus10
       value: 
       objectReference: {fileID: 1218836171}
+    - target: {fileID: 5209384263677470647, guid: be053fcd5d26bf249a03ca6c49dfce92, type: 3}
+      propertyPath: _AudioSource
+      value: 
+      objectReference: {fileID: 401235478}
     - target: {fileID: 9071011191608799321, guid: be053fcd5d26bf249a03ca6c49dfce92, type: 3}
       propertyPath: m_Name
       value: Clock
