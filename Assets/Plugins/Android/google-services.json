@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "877563992092",
+    "project_id": "unitymaze-d874c",
+    "storage_bucket": "unitymaze-d874c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877563992092:android:3d5c17df67a3ad3b3567d9",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.OurUnityFinalProject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877563992092-krm4mg9qv6s7999uvfoh2lqdj7l7i1ob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATCPr1Suc-O3PtkKp-Q46R46z1_DTSoNs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "877563992092-krm4mg9qv6s7999uvfoh2lqdj7l7i1ob.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

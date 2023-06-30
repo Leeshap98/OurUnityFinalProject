@@ -238,7 +238,7 @@ PlayerSettings:
   clonedFromGUID: c0afd0d1d80e3634a9dac47e8a0426ea
   templatePackageId: com.unity.template.3d@8.1.3
   templateDefaultScene: Assets/Scenes/SampleScene.unity
-  useCustomMainManifest: 0
+  useCustomMainManifest: 1
   useCustomLauncherManifest: 0
   useCustomMainGradleTemplate: 0
   useCustomLauncherGradleManifest: 0
@@ -913,11 +913,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 6711cc2c-fe99-480a-a898-fd5daf6709e1
+  cloudProjectId: f1518ff6-1193-4617-b2e6-25adb94d4144
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Our Unity Final Project
-  organizationId: leeshap77
+  organizationId: emibeanie
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
