@@ -687,7 +687,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-19794
+  m_Name: pb_Mesh47630
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2298,7 +2298,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.8766153, y: 0, z: 4.668695}
+  m_Size: {x: 1.8766153, y: 0.2285646, z: 4.668695}
   m_Center: {x: 2.8721738, y: -0.1009341, z: 2.789426}
 --- !u!65 &1253967867
 BoxCollider:
@@ -2324,7 +2324,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.0639997, y: 0, z: 5.609661}
+  m_Size: {x: 5.0639997, y: 0.2285646, z: 5.609661}
   m_Center: {x: 2.592283, y: -0.11428228, z: -2.3292809}
 --- !u!65 &1253967869
 BoxCollider:
@@ -2363,8 +2363,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.054002, y: 0.22856456, z: 10.026096}
-  m_Center: {x: -3.2450385, y: 0, z: 0}
+  m_Size: {x: 4.054002, y: 0.2285646, z: 10.026096}
+  m_Center: {x: -3.2450385, y: -0.114282236, z: 0}
 --- !u!1 &1267942410
 GameObject:
   m_ObjectHideFlags: 0
