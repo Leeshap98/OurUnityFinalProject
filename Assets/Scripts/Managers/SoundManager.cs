@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioMixer _SFXMixer;
     [SerializeField] Slider _MusicSlider;
     [SerializeField] Slider _SFXSlider;
+    [SerializeField] Toggle _VibToggle;
 
     private bool _VibrationEnabled;
 
@@ -21,6 +22,8 @@ public class SoundManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        _VibToggle.onValueChanged.AddListener(SetVib);
+        _VibrationEnabled = true;
     }
 
     public void SetMusicVolume()
@@ -33,8 +36,9 @@ public class SoundManager : MonoBehaviour
         float volume = _SFXSlider.value;
         _SFXMixer.SetFloat("SFXVol", volume);
     }
-    public void SetVib()
+    public void SetVib(bool value)
     {
-        _VibrationEnabled = !_VibrationEnabled;
+        _VibrationEnabled = value;
+        Debug.Log(value);
     }
 }

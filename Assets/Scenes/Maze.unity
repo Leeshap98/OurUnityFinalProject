@@ -554,6 +554,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2102371180}
     - target: {fileID: 4455650692177208895, guid: 5c88528ac94cf0e48862d770f15dba00, type: 3}
+      propertyPath: _VibToggle
+      value: 
+      objectReference: {fileID: 4341470799724222669}
+    - target: {fileID: 4455650692177208895, guid: 5c88528ac94cf0e48862d770f15dba00, type: 3}
       propertyPath: _MusicSlider
       value: 
       objectReference: {fileID: 18502254}
@@ -1884,7 +1888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3258554757581239798, guid: 7e3f93d78f17e9545b0ec289fca9cc41, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3258554757581239798, guid: 7e3f93d78f17e9545b0ec289fca9cc41, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1901,6 +1905,10 @@ PrefabInstance:
     - target: {fileID: 3258554757581239798, guid: 7e3f93d78f17e9545b0ec289fca9cc41, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SoundManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3258554757581239798, guid: 7e3f93d78f17e9545b0ec289fca9cc41, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3258554757581239798, guid: 7e3f93d78f17e9545b0ec289fca9cc41, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -2464,3 +2472,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e3f93d78f17e9545b0ec289fca9cc41, type: 3}
+--- !u!114 &4341470799724222669 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3258554757581239798, guid: 7e3f93d78f17e9545b0ec289fca9cc41, type: 3}
+  m_PrefabInstance: {fileID: 4341470799724222668}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

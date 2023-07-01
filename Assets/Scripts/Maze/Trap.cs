@@ -12,15 +12,13 @@ public class Trap : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            //if(SoundManager.Instance.VibrationEnabled)
-            
-            Handheld.Vibrate();
+            if(SoundManager.Instance.VibrationEnabled == true)
+                Handheld.Vibrate();
 
             _AudioSource.clip = _AudioClip;
             _AudioSource.Play();
 
             StartCoroutine(Timer());
-            
         }
     }
 
