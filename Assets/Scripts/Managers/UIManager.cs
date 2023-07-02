@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
    
 
     public float Timer { get; set; } = 0;
-    public float Score { get; private set; } = 0; 
+    
 
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class UIManager : MonoBehaviour
         {
             Timer += Time.deltaTime;
             int timer = System.Convert.ToInt32(Timer);
-            _timeLeft.text = $"Time: {timer.ToString()}s";
+            _timeLeft.text = $"Time: {timer}s";
             if (Timer <= 0)
                 Timer = 0;
         }
@@ -40,21 +40,21 @@ public class UIManager : MonoBehaviour
 
     public void AddScore(int addedScore)
     {
-        Score += addedScore;
-        _scoreText.text = $"Score: {Score.ToString()}";
+        GameManager.Instance.Score += addedScore;
+        _scoreText.text = $"Score: {GameManager.Instance.Score}";
     }
 
     public void ResetScore()
     {
-        Score = 0;
-        _scoreText.text = $"Score: {Score.ToString()}";
+        GameManager.Instance.Score = 0;
+        _scoreText.text = $"Score: {GameManager.Instance.Score}";
     }
 
     public void RestTimer()
     {
         Timer = 0;
         int timer = System.Convert.ToInt32(Timer);
-        _timeLeft.text = $"Time: {timer.ToString()}s";
+        _timeLeft.text = $"Time: {timer}s";
     }
     public void PauseGameMenu()
     {

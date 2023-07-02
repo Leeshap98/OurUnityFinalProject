@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public float Score { get; set; } = 0;
+
     [SerializeField] AudioSource _AudioSource;
     [SerializeField] AudioClip _AudioClip;
 
@@ -36,7 +38,7 @@ public class GameManager : MonoBehaviour
         }
 
         UIManager.Instance.ResumeGameMenu();
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, $"Level_{SceneManager.GetActiveScene().buildIndex.ToString()}");
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, $"Level_{SceneManager.GetActiveScene().buildIndex}");
     }
 
     private void OnApplicationFocus(bool focus)
@@ -72,8 +74,8 @@ public class GameManager : MonoBehaviour
 
     public void EndLevel()
     {
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, $"Level_{SceneManager.GetActiveScene().buildIndex.ToString()}");
-        GameAnalytics.NewDesignEvent($"Coin:Collected {UIManager.Instance.Score}:EndLevel", UIManager.Instance.Score);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, $"Level_{SceneManager.GetActiveScene().buildIndex}");
+        GameAnalytics.NewDesignEvent($"Coin:Collected {Score}:EndLevel", Score);
       
         LoadNextLevel();
     }

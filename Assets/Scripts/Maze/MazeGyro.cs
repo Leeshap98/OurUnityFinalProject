@@ -3,11 +3,10 @@ using UnityEngine;
 public class MazeGyro : MonoBehaviour
 {
     Gyroscope gyro;
-    [SerializeField]
-    float _speed = 3;
-    [SerializeField] Quaternion rotationOffset;
+    [SerializeField] float _speed = 3;
+    Quaternion rotationOffset = Quaternion.identity;
 
-    private Quaternion inverseGyroAttitude;
+    private Quaternion GyroAttitude;
 
     public bool GyroIsEnabled = true;
 
@@ -22,8 +21,8 @@ public class MazeGyro : MonoBehaviour
 
     public void ResetGyro()
     {
-        inverseGyroAttitude = gyro.attitude;
-        rotationOffset = transform.rotation * inverseGyroAttitude;
+        GyroAttitude = gyro.attitude;
+        rotationOffset = transform.rotation * GyroAttitude;
     }
 
     private void Update()
